@@ -33,6 +33,7 @@ router.get('/category/delete', isAdmin, backendCategory.deletes)
 router.get('/category/recover', isAdmin, backendCategory.recover)
 router.post('/category/modify', isAdmin, multipartMiddleware, backendCategory.modify)
 // ------- admin -------
+router.post('/admin/insert', multipartMiddleware, backendUser.insert)
 router.post('/admin/login', multipartMiddleware, backendUser.login)
 router.get('/admin/list', isAdmin, backendUser.getList)
 router.get('/admin/item', isAdmin, backendUser.getItem)

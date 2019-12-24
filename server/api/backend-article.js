@@ -72,7 +72,7 @@ exports.insert = (req, res) => {
         is_delete: 0,
         timestamp: moment().format('X')
     }
-
+    /*
     try {
         // create data to database with data model Article
         const result = await Article.createAsync(data)
@@ -95,7 +95,7 @@ exports.insert = (req, res) => {
             message: err.toString()
         })
     }
-    /*
+    */
     // create data to database with data model Article
     Article.createAsync(data)
         .then(result => {
@@ -114,7 +114,6 @@ exports.insert = (req, res) => {
                 message: err.toString()
             })
         })
-    */
 }
 
 /**
