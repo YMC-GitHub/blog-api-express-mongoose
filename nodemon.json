@@ -1,0 +1,9 @@
+{
+    "watch": [
+        "bin/www",
+        "app",
+        "server/"
+    ],
+    "ext": "js",
+    "exec": "node bin/www"
+}
