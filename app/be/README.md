@@ -15,8 +15,6 @@ npm run start
 
 # Start the api server(pro)
 npm run  pm2
-#or
-npm run  koa
 #...
 
 ```
@@ -38,7 +36,6 @@ note:get more details on [api-docs(todos)]().
 |--README.md #read me before
 |--app.js #the app index file
 |--bin #run the app index file
-| |--run
 | |--www
 |--license
 |--package.json
@@ -59,7 +56,6 @@ note:get more details on [api-docs(todos)]().
 | |--middlewares #some custom middlewares files
 | | |--admin.js
 | | |--check.js
-| | |--return.js
 | | |--user.js
 | |--models #some data model files
 | | |--admin.js
@@ -88,12 +84,12 @@ note:get more details on [api-docs(todos)]().
 req url->route->model->view->res uri
 ```
 
-## some custom koa middleware
+## some custom express middleware
 
 admin:
 ```
 // ================ admin ================
-// this is a custom koa middleware admin
+// this is a custom express middleware admin
 // ================ admin ================
 // task:
 // check if user is admin:
@@ -102,19 +98,11 @@ admin:
 // if true,goto next middleware
 ```
 
-check:
-```
-// ================ check ================
-// this is a custom koa middleware check
-// ================ check ================
-// task:
-// verify the token with some config
-```
 
 user:
 ```
 // ================ user ================
-// this is a custom koa middleware user
+// this is a custom express middleware user
 // ================ user ================
 // task:
 // check if user is user:
@@ -127,7 +115,7 @@ user:
 return:
 ```
 // ================ return ================
-// this is a custom koa middleware return
+// this is a custom express middleware return
 // ================ return ================
 // task:
 // bind error,success function to ctx to uniform the return result

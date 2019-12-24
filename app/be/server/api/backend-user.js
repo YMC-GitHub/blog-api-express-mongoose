@@ -109,10 +109,18 @@ exports.login = (req, res) => {
 exports.insert = (req, res, next) => {
     const { email, password, username } = req.body
     if (fsExistsSync('./admin.lock')) {
-        return res.render('admin-add.ejs', { message: 'please delete admin.lock first' })
+        res.json({
+            code: -200,
+            message: 'fails',
+            data: 'please delete admin.lock first'
+        })
     }
     if (!username || !password || !email) {
-        return res.render('admin-add.ejs', { message: 'please fill on form first' })
+        res.json({
+            code: -200,
+            message: 'fails',
+            data: 'please fill on form first'
+        })
     }
     Admin.findOneAsync({ username })
         .then(result => {
@@ -151,10 +159,10 @@ exports.insert = (req, res, next) => {
 exports.insert = (req, res, next) => {
     const { email, password, username } = req.body
     if (fsExistsSync('./admin.lock')) {
-        return res.render('admin-add.html', { message: 'please delete admin.lock first' })
+        return res.render('admin-add.ejs', { message: 'please delete admin.lock first' })
     }
     if (!username || !password || !email) {
-        return res.render('admin-add.html', { message: 'please fill on form first' })
+        return res.render('admin-add.ejs', { message: 'please fill on form first' })
     }
     Admin.findOneAsync({ username })
         .then(result => {

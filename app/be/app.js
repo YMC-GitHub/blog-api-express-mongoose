@@ -18,7 +18,7 @@ require('./server/models/comment')
 require('./server/models/user')
 
 //include some route files
-var routes = require('./server/routes/index')
+var bindRouteToApp = require('./server/routes/index')
 
 var app = express()
 //use some express middlewares
@@ -35,25 +35,25 @@ app.set('views', path.join(__dirname, 'views'))
 app.engine('.ejs', require('ejs').__express)
 app.set('view engine', 'ejs')
 app.use(favicon(path.join(__dirname, 'views') + '/favicon.ico'))
-// for web api serve
-app.use('/api', routes)
+bindRouteToApp(app)
 
-app.get('*', (req, res) => {
-    res.json({
-        code: -200,
-        message: 'not found'
-    })
-})
-
-// catch 404 and run next middleware to handle error
-app.use(function (req, res, next) {
-    var err = new Error('Not Found')
-    err.status = 404
-    next(err)
-})
+//handle err
 app.use(function (err, req, res) {
+    //console.error('server error', err, req, res)
+    //console.error('server error', err)
+    console.error('server error', err.stack)
+    //send err to fe with html format
+    /*
     res.status(err.status || 500)
     res.send(err.message)
+    */
+    //send err to fe with json format
+    /*
+     res.json({
+         code: -200,
+         message: 'err.message'
+     })
+     */
 })
 
 module.exports = app
