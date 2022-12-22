@@ -25,7 +25,7 @@
         "eslint-config-lcy-vue": "^2.2.0",
         "express": "^4.17.1",
         "highlight.js": "^9.17.1",
-        "jsonwebtoken": "^8.5.1",
+        "jsonwebtoken": "^9.0.0",
         "marked": "^0.4.0",
         "md5": "^2.2.1",
         "moment": "^2.24.0",
